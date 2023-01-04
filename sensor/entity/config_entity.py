@@ -7,16 +7,15 @@ from datetime import datetime
 FILE_NAME = "sensor.csv"
 TRAIN_FILE_NAME = "train.csv"
 TEST_FILE_NAME = "test.csv"
-TRANSFORMER_OBJECT_FILE_NAME = "transformer.pkl"
-TARGET_ENCODER_OBJECT_FILE_NAME = "target_encoder.pkl"
-MODEL_FILE_NAME = "model.pkl"
+# TRANSFORMER_OBJECT_FILE_NAME = "transformer.pkl"
+# TARGET_ENCODER_OBJECT_FILE_NAME = "target_encoder.pkl"
+# MODEL_FILE_NAME = "model.pkl"
 
 class TrainingPipelineConfig:
 
     def __init__(self):
         try:
-            self.artifact_dir = os.path.join(os.getcwd(),"artifact",
-                                        f"{datetime.now().strftime('%m%d%Y__%H%M%S')}")
+            self.artifact_dir = os.path.join(os.getcwd(),"artifact", f"{datetime.now().strftime('%m%d%Y__%H%M%S')}")
         except Exception  as e:
             raise SensorException(e,sys) 
 
@@ -35,7 +34,7 @@ class DataIngestionConfig:
         except Exception  as e:
             raise SensorException(e,sys) 
 
-    def to_dict()->dict:
+    def to_dict(self)->dict:
         try:
             return self.__dict__
         except Exception as e:
